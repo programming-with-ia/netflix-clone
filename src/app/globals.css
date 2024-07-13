@@ -2,32 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+:host,
+html,
+body {
+  height: 100%;
+  width: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+svg {
+  shape-rendering: crispEdges;
+}
+
+svg circle,svg line,svg path,svg polygon,svg rect {
+  shape-rendering: geometricprecision;
+}
+
+
+.customScrollBar {
+  scrollbar-gutter: stable;
+}
+
+.customScrollBar::-webkit-scrollbar {
+  width: 0.25rem;
+  height: 0.25rem;
+}
+
+.customScrollBar::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.customScrollBar::-webkit-scrollbar-thumb {
+  @apply bg-primary rounded-full
+}
+
+.scrolling-touch, body, html {
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply bg-zinc-900 h-full overflow-x-hidden;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.blur-mask {
+  -webkit-mask: linear-gradient(rgb(24 24 27 / 0.9) 85%, transparent);
+  mask: linear-gradient(rgb(24 24 27 / 0.9) 85%, transparent);
 }

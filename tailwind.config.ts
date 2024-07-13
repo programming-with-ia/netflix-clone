@@ -8,13 +8,20 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: "#e50914",
+      },
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        loginBg: "url('/images/loginBg.jpg')",
+      },
+      boxShadow: {
+        'inner-upper': '0px 25px 50px 0px rgba(15,15,15,0.9) inset',
+        'inner-upper-2xl': '0px 75px 50px 0px rgba(15,15,15,0.9) inset',
+        'inner-lower': '0px -75px 50px 0px rgba(15,15,15,0.9) inset',
       },
     },
   },
   plugins: [],
 };
+
 export default config;
